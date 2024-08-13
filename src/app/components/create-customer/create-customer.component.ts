@@ -1,7 +1,8 @@
-import { Component,inject, input, OnInit } from '@angular/core';
+import { Component,inject, input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { UsersService } from '../../services/users.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-create-customer',
@@ -10,7 +11,7 @@ import { UsersService } from '../../services/users.service';
   templateUrl: './create-customer.component.html',
   styleUrl: './create-customer.component.css'
 })
-export class CreateCustomerComponent implements OnInit{
+export class CreateCustomerComponent implements OnInit,OnDestroy{
   private router=inject(Router);
   private route=inject(ActivatedRoute);
   id:any;
@@ -27,9 +28,10 @@ export class CreateCustomerComponent implements OnInit{
     })
   });
 
+  params:Subscription;
   ngOnInit(): void {
     let formData;
-    this.route.paramMap.subscribe(params=>{
+    this.params=this.route.paramMap.subscribe(params=>{
       this.id=params.get('id');
       this.isEdit=params.get('id')?true:false;
       const storedUserData=localStorage.getItem('MyUsersData');
@@ -58,5 +60,8 @@ export class CreateCustomerComponent implements OnInit{
   }
   onCancelUser(){
     this.userForm.reset();
+  }
+  ngOnDestroy(): void {
+    this.params.unsubscribe();
   }
 }

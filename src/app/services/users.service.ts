@@ -20,9 +20,9 @@ export class UsersService{
     const storedUserData=localStorage.getItem('MyUsersData');
     let parsedData=storedUserData?JSON.parse(storedUserData):null;
     if(isEdit){
-      let notEditedData=parsedData.filter(ele=>ele.id!==newUserData.id);
+      let notEditedData=parsedData.filter(ele=>ele.id!=newUserData.id);
       if(notEditedData){
-        this.users=[newUserData,notEditedData];
+        this.users=[newUserData,...notEditedData];
       }
     }else{
       this.users=newUserData?[newUserData,...this.users]:this.users;
