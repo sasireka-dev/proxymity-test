@@ -1,0 +1,52 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+    <h2>Add User</h2>
+    <div class="control">
+        <label for="username">User Name</label>
+        <input id="username" type="text" name="username" formControlName="username" />
+    </div>
+    @if(userForm.get('username').touched && !userForm.get('username').valid){
+    <p>User Name is required</p>
+    }
+
+    <div class="control">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" formControlName="name" />
+    </div>
+    @if(userForm.get('name').touched && !userForm.get('name').valid){
+        <p>Name is required</p>
+        }
+
+    <div class="control">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" formControlName="email" />
+    </div>
+    @if(userForm.get('email').touched && !userForm.get('email').valid){
+        <p>Email is required</p>
+        }
+
+    <fieldset formGroupName="address">
+        <legend>Address</legend>
+
+        <div class="control-row">
+            <div class="control">
+                <label for="street">Street</label>
+                <input type="text" id="street" name="street" formControlName="street" />
+            </div>
+            <div class="control">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" formControlName="city" />
+            </div>
+        </div>
+    </fieldset>
+    @if(userForm.get('address').touched && !userForm.get('address').valid){
+        <p>Address is required</p>
+        }
+  
+    <p class="form-actions">
+        <button type="reset" class="button button-flat" (click)="onCancelUser()">Cancel</button>
+        <button type="submit" class="button" [class.disabled]="!userForm.valid">Add</button>
+    </p>
+    @if(userForm.touched && userForm.dirty && !userForm.valid){
+        <p>Form data is required</p>
+        }
+</form>

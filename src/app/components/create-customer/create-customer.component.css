@@ -1,0 +1,93 @@
+form {
+    width: 90%;
+    max-width: 40rem;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: linear-gradient(180deg, #bf9ee5, #7a25dc);
+    border-radius: 8px;
+    box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.5);
+  }
+  h2{
+    text-align: center;
+    color: #3c2c50;
+  }
+  
+  .control,
+  fieldset {
+    margin: 0.5rem 0;
+  }
+  
+  .control.no-margin {
+    margin-bottom: 0;
+  }
+  
+  .control label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+    color: #3c2c50;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .control input {
+    display: block;
+    width: 100%;
+    max-width: 15rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #758a8a;
+    background-color: rgb(233, 224, 224);
+    color: #142020;
+  }
+  
+  .control-row {
+    margin: 0.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .control-row .control {
+    flex: 1;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: none;
+    background-color: #380774;
+    color: #d9e2f1;
+    cursor: pointer;
+  }
+  
+  .button:hover,
+  .button:focus {
+   background-color: #4a0774;
+   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .disabled{
+    cursor:not-allowed;
+  }
+  
+  .button-flat {
+    background-color: transparent;
+    color: #9cbaba;
+  }
+  
+  .button-flat:hover,
+  .button-flat:focus {
+    background-color: transparent;
+    color: #928699;
+  }
+  
